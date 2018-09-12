@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google-site-verification" content="xBT4GhYoi5qRD5tr338pgPM5OWHHIDR6mNg1a3euekI" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="王觉的博客">
+    <meta name="keyword"  content="腾讯">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+
+    <title>
+        
+        简单粗暴的屏幕适配 - 王觉的博客
+        
+    </title>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/aircloud.css">
+    <link rel="stylesheet" href="/css/gitment.css">
+    <!--<link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">-->
+    <link href="//at.alicdn.com/t/font_620856_pl6z7sid89qkt9.css" rel="stylesheet" type="text/css">
+    <!-- ga & ba script hoook -->
+    <script></script>
+</head>
+
+<body>
+
+<div class="site-nav-toggle" id="site-nav-toggle">
+    <button>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+        <span class="btn-bar"></span>
+    </button>
+</div>
+
+<div class="index-about">
+    <i> 真正的大师永远怀着一颗学徒的心 </i>
+</div>
+
+<div class="index-container">
+    
+    <div class="index-left">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="nav" id="nav">
+    <div class="avatar-name">
+        <div class="avatar">
+            <img src="/img/avatar.jpg" />
+        </div>
+        <div class="name">
+            <i>Wang Jue</i>
+        </div>
+    </div>
+    <div class="contents" id="nav-content">
+        <ul>
+            <li >
+                <a href="/">
+                    <i class="iconfont icon-shouye1"></i>
+                    <span>主页</span>
+                </a>
+            </li>
+            <li >
+                <a href="/archives">
+                    <i class="iconfont icon-guidang2"></i>
+                    <span>归档</span>
+                </a>
+            </li>
+            <!--
+            <li >
+                <a href="/categories">
+                    <i class="fa fa-th"></i>                 
+                    <span>分类</span>
+                </a>
+            </li>
+            -->
+            <li >
+                <a href="/tags">
+                    <i class="iconfont icon-biaoqian1"></i>
+                    <span>标签</span>
+                </a>
+            </li>
+            
+            <li >
+                <a href="/about/">
+                    <i class="iconfont icon-guanyu2"></i>
+                    <span>关于</span>
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+    
+        <div id="toc" class="toc-article">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#适配缘起"><span class="toc-text">适配缘起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#基本概念"><span class="toc-text">基本概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#具体使用"><span class="toc-text">具体使用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-text">代码片段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#屏幕适配问题汇总及解决"><span class="toc-text">屏幕适配问题汇总及解决</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#webview-加载后发现-density-复原？"><span class="toc-text">webview 加载后发现 density 复原？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#如何让系统-View-尺寸正常？"><span class="toc-text">如何让系统 View 尺寸正常？</span></a></li></ol></li></ol>
+</div>
+    
+</div>
+
+
+<div class="search-field" id="search-field">
+    <div class="search-container">
+        <div class="search-input">
+            <span id="esc-search"> <i class="icon-fanhui iconfont"></i></span>
+            <input id="search-input"/>
+            <span id="begin-search">搜索</span>
+        </div>
+        <div class="search-result-container" id="search-result-container">
+
+        </div>
+    </div>
+</div>
+        <div class="index-about-mobile">
+            <i> 真正的大师永远怀着一颗学徒的心 </i>
+        </div>
+    </div>
+    
+    <div class="index-middle">
+        <!-- Main Content -->
+        
+
+
+<div class="post-container">
+    <div class="post-title">
+        简单粗暴的屏幕适配
+    </div>
+
+    <div class="post-meta">
+        <span class="attr">发布于：<span>2018-09-13 00:12:46</span></span>
+        
+        <span class="attr">标签：/
+        
+        <a class="tag" href="/tags/#Android" title="Android">Android</a>
+        <span>/</span>
+        
+        
+        </span>
+        <span class="attr">访问：<span id="busuanzi_value_page_pv"></span>
+</span>
+</span>
+    </div>
+    <div class="post-content ">
+        <h2 id="适配缘起"><a href="#适配缘起" class="headerlink" title="适配缘起"></a>适配缘起</h2><p>由于Android各种机型屏幕尺寸众多及屏幕分辨率各异的原因，很容易出现同一元素在不同手机上显示效果不同的问题。所以为了让用户获得一致的用户体验效果,使得某一元素在Android不同尺寸、不同分辨率的、不同系统的手机上保持界面上的效果一致,我们需要对各种手机屏幕进行适配！</p>
+<h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>px = dp * density<br>density = DPI / 160</p>
+<p>此方案需要水平和竖直方向分别适配：<br>density = 当前设备屏幕总宽度（单位为像素）/ 设计图总宽度（单位为 dp)<br>density = 当前设备屏幕总高度（单位为像素）/ 设计图总高度（单位为 dp)    </p>
+<p>PS：和 density 相关的还有 densityDpi、scaledDensity，我们根据 density 等比修改 densityDpi、scaledDensity</p>
+<h2 id="具体使用"><a href="#具体使用" class="headerlink" title="具体使用"></a>具体使用</h2><h3 id="代码片段"><a href="#代码片段" class="headerlink" title="代码片段"></a>代码片段</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">@Override </span><br><span class="line">public void initData(@Nullable Bundle bundle) &#123;</span><br><span class="line">    if (ScreenUtils.isPortrait()) &#123;</span><br><span class="line">        ScreenUtils.adaptScreen4VerticalSlide(this, 360);</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        ScreenUtils.adaptScreen4HorizontalSlide(this, 360);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; </span><br><span class="line"></span><br><span class="line"> </span><br><span class="line">/**</span><br><span class="line"> * Adapt the screen for horizontal slide.</span><br><span class="line"> *</span><br><span class="line"> * @param activity         The activity.</span><br><span class="line"> * @param designHeightInPx The size of design diagram&apos;s height, in pixel.</span><br><span class="line"> */</span><br><span class="line">public static void adaptScreen4HorizontalSlide(final Activity activity, final int designHeightInPx) &#123;</span><br><span class="line">    adaptScreen(activity, designHeightInPx, false);</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * Reference from: https://mp.weixin.qq.com/s/d9QCoBP6kV9VSWvVldVVwA</span><br><span class="line"> */</span><br><span class="line">private static void adaptScreen(final Activity activity, final int sizeInPx, final boolean isVerticalSlide) &#123;</span><br><span class="line">    final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();</span><br><span class="line">    final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();</span><br><span class="line">    final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();</span><br><span class="line">    if (isVerticalSlide) &#123;</span><br><span class="line">        activityDm.density = activityDm.widthPixels / (float) sizeInPx;</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">        activityDm.density = activityDm.heightPixels / (float) sizeInPx;</span><br><span class="line">    &#125;</span><br><span class="line">    activityDm.scaledDensity = activityDm.density * (systemDm.scaledDensity / systemDm.dens activityDm.densityDpi = (int)(160 * activityDm.density); appDm.density = activityDm.density; appDm.scaledDensity = activityDm.scaledDensity; appDm.densityDpi = activityDm.densityDpi;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * Cancel adapt the screen.</span><br><span class="line"> *</span><br><span class="line"> * @param activity The activity.</span><br><span class="line"> */</span><br><span class="line">public static void cancelAdaptScreen(final Activity activity) &#123;</span><br><span class="line">    final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();</span><br><span class="line">    final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();</span><br><span class="line">    final DisplayMetrics activityDm = activity.getResources().getDisplayMetrics();</span><br><span class="line">    activityDm.density = systemDm.density;</span><br><span class="line">    activityDm.scaledDensity = systemDm.scaledDensity;</span><br><span class="line">    activityDm.densityDpi = systemDm.densityDpi;</span><br><span class="line">    appDm.density = systemDm.density;</span><br><span class="line">    appDm.scaledDensity = systemDm.scaledDensity;</span><br><span class="line">    appDm.densityDpi = systemDm.densityDpi;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * Return whether adapt screen.</span><br><span class="line"> *</span><br><span class="line"> * @return &#123;@code true&#125;: yes&lt;br&gt;&#123;@code false&#125;: no</span><br><span class="line"> */</span><br><span class="line">public static boolean isAdaptScreen() &#123;</span><br><span class="line">    final DisplayMetrics systemDm = Resources.getSystem().getDisplayMetrics();</span><br><span class="line">    final DisplayMetrics appDm = Utils.getApp().getResources().getDisplayMetrics();</span><br><span class="line">    return systemDm.density != appDm.density;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><a href="https://github.com/Blankj/AndroidUtilCode/blob/master/utilcode/src/main/java/com/blankj/utilcode/util/ScreenUtils.java" target="_blank" rel="noopener">ScreenUtils.java</a></p>
+<h2 id="屏幕适配问题汇总及解决"><a href="#屏幕适配问题汇总及解决" class="headerlink" title="屏幕适配问题汇总及解决"></a>屏幕适配问题汇总及解决</h2><h3 id="webview-加载后发现-density-复原？"><a href="#webview-加载后发现-density-复原？" class="headerlink" title="webview 加载后发现 density 复原？"></a>webview 加载后发现 density 复原？</h3><p>由于 WebView 初始化的时候会还原 density 的值导致适配失效，继承 WebView，重写如下方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">@Override</span><br><span class="line">public void setOverScrollMode(int mode) &#123;</span><br><span class="line">    super.setOverScrollMode(mode);</span><br><span class="line">    ScreenUtils.restoreAdaptScreen();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="如何让系统-View-尺寸正常？"><a href="#如何让系统-View-尺寸正常？" class="headerlink" title="如何让系统 View 尺寸正常？"></a>如何让系统 View 尺寸正常？</h3><p>后面提到的 Dialog 和 Toast 其实都可以用用这种解决方案，就是在 inflate 相关 View 之前调用 ScreenUtils#cancelAdaptScreen，show 之后调用 ScreenUtils#restoreAdaptScreen 即可，这样就可以让系统 View 显示正常尺寸。</p>
+
+        
+        <div id="comment-container">
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<footer class="footer">
+    <ul class="list-inline text-center">
+        
+        
+
+        
+
+        
+
+        
+        <li>
+            <a target="_blank"  href="tencent://message/?uin=273018850">
+                <i class="fa fa-qq" style="color:white"></i>
+            </a>
+        </li>
+        
+
+        
+        <li>
+            <a target="_blank"  href="mailto:273018850@qq.com">
+                <i class="fa fa-envelope-open" style="color:white"></i>
+            </a>
+        </li>
+        
+    
+        
+        <li>
+            <a target="_blank"  href="https://github.com/xweixiao">
+                <i class="fa fa-github" style="color:white"></i>
+            </a>
+        </li>
+        
+
+        
+
+    </ul>
+    
+    <p>
+        <span id="busuanzi_container_site_pv">
+            <span id="busuanzi_value_site_pv"></span>PV
+        </span>
+        <span id="busuanzi_container_site_uv">
+            <span id="busuanzi_value_site_uv"></span>UV
+        </span>
+        Created By <a href="https://hexo.io/">Hexo</a>  Theme <a href="https://github.com/aircloud/hexo-theme-aircloud">AirCloud</a></p>
+</footer>
+
+
+
+
+</body>
+
+<script>
+    // We expose some of the variables needed by the front end
+    window.hexo_search_path = ""
+    window.hexo_root = "/"
+    window.isPost = true
+</script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+</html>
